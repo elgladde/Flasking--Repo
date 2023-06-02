@@ -12,15 +12,15 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Docker Login') {
       steps {
-        sh 'docker build -t eglad001/flask_app .'
+        sh 'docker login -u eglad001 -p dckr_pat_2uHGH7Cgs-nMcG-htisy_3ffmrI'
       }
     }
 
-    stage('Docker login') {
+    stage('Docker Build') {
       steps {
-        sh 'docker login -u eglad001 -p dckr_pat_2uHGH7Cgs-nMcG-htisy_3ffmrI'
+        sh 'docker build -t eglad001/flask_app .'
       }
     }
 
